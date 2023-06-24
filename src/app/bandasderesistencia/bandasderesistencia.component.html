@@ -9,48 +9,48 @@
             <div class="col-mb-3">
                 <label for="banda1">Color de la banda 1:</label>
                 <select class="form-select" id="banda1" [(ngModel)]="banda1Color">
-                    <option value="negro" style="background-color: black;">Negro</option>
-                    <option value="marrón" style="background-color: maroon;">Marrón</option>
-                    <option value="rojo" style="background-color: red;">Rojo</option>
-                    <option value="naranja" style="background-color: orange;">Naranja</option>
-                    <option value="amarillo" style="background-color: gold;">Amarillo</option>
-                    <option value="verde" style="background-color: green;">Verde</option>
-                    <option value="azul" style="background-color: blue;">Azul</option>
-                    <option value="violeta" style="background-color: violet;">Violeta</option>
-                    <option value="gris" style="background-color: darkgrey;">Gris</option>
-                    <option value="blanco" style="background-color: white;">Blanco</option>
+                    <option value="0" style="background-color: black;">Negro</option>
+                    <option value="1" style="background-color: maroon;">Marrón</option>
+                    <option value="2" style="background-color: red;">Rojo</option>
+                    <option value="3" style="background-color: orange;">Naranja</option>
+                    <option value="4" style="background-color: gold;">Amarillo</option>
+                    <option value="5" style="background-color: green;">Verde</option>
+                    <option value="6" style="background-color: blue;">Azul</option>
+                    <option value="7" style="background-color: violet;">Violeta</option>
+                    <option value="8" style="background-color: darkgrey;">Gris</option>
+                    <option value="9" style="background-color: white;">Blanco</option>
                 </select>
             </div>
 
             <div class="col-mb-3">
                 <label for="banda2">Color de la banda 2:</label>
                 <select class="form-select" id="banda2" [(ngModel)]="banda2Color">
-                    <option value="negro" style="background-color: black;">Negro</option>
-                    <option value="marrón" style="background-color: maroon;">Marrón</option>
-                    <option value="rojo" style="background-color: red;">Rojo</option>
-                    <option value="naranja" style="background-color: orange;">Naranja</option>
-                    <option value="amarillo" style="background-color: gold;">Amarillo</option>
-                    <option value="verde" style="background-color: green;">Verde</option>
-                    <option value="azul" style="background-color: blue;">Azul</option>
-                    <option value="violeta" style="background-color: violet;">Violeta</option>
-                    <option value="gris" style="background-color: darkgrey;">Gris</option>
-                    <option value="blanco" style="background-color: white;">Blanco</option>
+                    <option value="0" style="background-color: black;">Negro</option>
+                    <option value="1" style="background-color: maroon;">Marrón</option>
+                    <option value="2" style="background-color: red;">Rojo</option>
+                    <option value="3" style="background-color: orange;">Naranja</option>
+                    <option value="4" style="background-color: gold;">Amarillo</option>
+                    <option value="5" style="background-color: green;">Verde</option>
+                    <option value="6" style="background-color: blue;">Azul</option>
+                    <option value="7" style="background-color: violet;">Violeta</option>
+                    <option value="8" style="background-color: darkgrey;">Gris</option>
+                    <option value="9" style="background-color: white;">Blanco</option>
                 </select>
             </div>
 
             <div class="col-mb-3">
                 <label for="multiplicador">Multiplicador:</label>
                 <select class="form-select" id="multiplicador" [(ngModel)]="multiplicador">
-                    <option value="negro" style="background-color: black;">Negro</option>
-                    <option value="marrón" style="background-color: maroon;">Marrón</option>
-                    <option value="rojo" style="background-color: red;">Rojo</option>
-                    <option value="naranja" style="background-color: orange;">Naranja</option>
-                    <option value="amarillo" style="background-color: gold;">Amarillo</option>
-                    <option value="verde" style="background-color: green;">Verde</option>
-                    <option value="azul" style="background-color: blue;">Azul</option>
-                    <option value="violeta" style="background-color: violet;">Violeta</option>
-                    <option value="gris" style="background-color: darkgrey;">Gris</option>
-                    <option value="blanco" style="background-color: white;">Blanco</option>
+                    <option value="0" style="background-color: black;">Negro</option>
+                    <option value="1" style="background-color: maroon;">Marrón</option>
+                    <option value="2" style="background-color: red;">Rojo</option>
+                    <option value="3" style="background-color: orange;">Naranja</option>
+                    <option value="4" style="background-color: gold;">Amarillo</option>
+                    <option value="5" style="background-color: green;">Verde</option>
+                    <option value="6" style="background-color: blue;">Azul</option>
+                    <option value="7" style="background-color: violet;">Violeta</option>
+                    <option value="8" style="background-color: darkgrey;">Gris</option>
+                    <option value="9" style="background-color: white;">Blanco</option>
                 </select>
             </div>
 
@@ -62,13 +62,42 @@
                 </select>
             </div>
         </div>
+        
+
+
         <br>
 
         <button class="btn btn-primary" (click)="calcularResistencia()">Calcular</button>
     </div>
     <hr>
 
-    <div *ngIf="resistencia !== null" style="background-color: rgb(185, 219, 224);">
-        <p>El valor de la resistencia es: {{ resistencia }} Ohms</p>
-        <p>Su tolerancia es: {{toleranciaValor}}%</p>
+    <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">banda1</th>
+                <th scope="col">banda2</th>
+                <th scope="col">multiplicador</th>
+                <th scope="col">tolerancia</th>
+                <th scope="col">valores</th>
+                <th scope="col">minimo</th> 
+                <th scope="col">maximo</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr >
+                <!-- <td *ngFor="let op in listResistencia" [style.background-color]='banda1Color'></td> -->
+                <td [style.background-color]="banda1"></td>
+                <td [style.background-color]="banda2"></td>
+                <td [style.background-color]="banda3"></td>
+                <td [style.background-color]="toleranciaColor">{{toleranciaValor}}</td>
+                <td>{{ resistencia }} Ohms</td>
+                <td>{{ minimo }}</td>
+                <td>{{maximo}}</td>
+              </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <hr>
 </div>
