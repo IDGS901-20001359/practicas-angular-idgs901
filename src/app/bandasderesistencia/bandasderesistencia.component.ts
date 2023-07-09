@@ -62,25 +62,20 @@ export class BandasderesistenciaComponent {
     const banda2Valor = coloresBanda2[coloresBanda[this.banda2Color]];
     const banda3Valor = coloresBanda2[coloresBanda[this.multiplicador]];
     const multiplicadorValor = Math.pow(10, this.multiplicador);
-    /* 
-      negro: 1,
-      marrón: 10,
-      rojo: 100,
-      naranja: 1000,
-      amarillo: 10000,
-      verde: 100000,
-      azul: 1000000,
-      violeta: 10000000,
-      gris: 100000000,
-      blanco: 1000000000
-    }; */
-
 
 
     this.resistencia = (Number(this.banda1Valor) * 10 + banda2Valor) * multiplicadorValor;
     this.toleranciaValor = tolerancias[this.tolerancia.toLowerCase()];
-    this.minimo = (this.resistencia - this.toleranciaValor);
-    this.maximo = (this.resistencia + this.toleranciaValor);
+
+    if (this.tolerancia == 'oro'){
+      this.minimo = this.resistencia - (this.resistencia * 0.05)
+      this.maximo = this.resistencia + (this.resistencia * 0.05)
+    }
+    else{
+      this.minimo = this.resistencia - (this.resistencia * 0.1)
+      this.maximo = this.resistencia + (this.resistencia * 0.1)
+    }
+
     
     const valores = {
       'banda1Valor' : this.banda1Valor,
@@ -89,6 +84,7 @@ export class BandasderesistenciaComponent {
       'minimo' : this.minimo,
       'maximo' : this.maximo
     }
+    
     this.banda1 = colores[Number(this.banda1Valor)];
     this.banda2 = colores[Number(banda2Valor)];
     this.banda3 = colores[Number(banda3Valor)]
